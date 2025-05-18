@@ -2,7 +2,6 @@
 import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Proyecto } from '../proyecto/entity/proyecto/proyecto';
 import { Estudiante } from 'src/estudiantes/entity/estudiantes/estudiantes';
 
 @Injectable()
@@ -10,8 +9,7 @@ export class EstudiantesService {
   constructor(
     @InjectRepository(Estudiante)
     private readonly estudiantesRepo: Repository<Estudiante>,
-    @InjectRepository(Proyecto)
-    private readonly proyectoRepo: Repository<Proyecto>,
+    
   ) {}
 
   async crearEstudiante(data: Partial<Estudiante>): Promise<Estudiante> {
