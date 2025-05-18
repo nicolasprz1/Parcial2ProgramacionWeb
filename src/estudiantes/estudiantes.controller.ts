@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Post, Delete, Param, Body, ParseIntPipe } from '@nestjs/common';
-import { EstudiantesService } from 'src/estudiantes-service/estudiantes-service.service';
+import { EstudiantesService } from '../estudiantes-service/estudiantes-service.service';
 import { CreateEstudianteDto } from './dto/create-estudiante.dto/create-estudiante.dto';
 
 @Controller('estudiantes')

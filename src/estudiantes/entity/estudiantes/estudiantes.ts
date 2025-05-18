@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
-import { Proyecto } from 'src/proyecto/entity/proyecto/proyecto';
+import { Proyecto } from '../../../proyecto/entity/proyecto/proyecto';
 
 @Entity()
 export class Estudiante {

@@ -2,9 +2,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { EvaluacionService } from './evaluacion-service.service';
-import { Evaluacion } from 'src/evaluacion/entity/evaluacion/evaluacion';
-import { Proyecto } from 'src/proyecto/entity/proyecto/proyecto';
-import { Profesor } from 'src/profesores/entity/profesores/profesores';
+import { Evaluacion } from '../evaluacion/entity/evaluacion/evaluacion';
+import { Proyecto } from '../proyecto/entity/proyecto/proyecto';
+import { Profesor } from '../profesores/entity/profesores/profesores';
 import { Repository } from 'typeorm';
 import { BadRequestException} from '@nestjs/common';
 

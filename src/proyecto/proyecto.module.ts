@@ -2,8 +2,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Proyecto } from './entity/proyecto/proyecto';
-import { Estudiante } from 'src/estudiantes/entity/estudiantes/estudiantes';
-import { ProyectoService } from 'src/proyecto-service/proyecto-service.service';
+import { Estudiante } from '../estudiantes/entity/estudiantes/estudiantes';
+import { ProyectoService } from '../proyecto-service/proyecto-service.service';
 import { ProyectoController } from './proyecto.controller';
 
 

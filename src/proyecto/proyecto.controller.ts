@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Post, Patch, Get, Param, Body, ParseIntPipe } from '@nestjs/common';
-import { ProyectoService } from 'src/proyecto-service/proyecto-service.service';
+import { ProyectoService } from '../proyecto-service/proyecto-service.service';
 import { CreateProyectoDto } from './dto/create-proyecto.dto/create-proyecto.dto';
 
 @Controller('proyectos')

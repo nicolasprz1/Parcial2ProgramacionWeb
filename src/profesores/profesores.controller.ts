@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Post, Param, Body, ParseIntPipe } from '@nestjs/common';
-import { ProfesoresService } from 'src/profesor-service/profesor-service.service';
+import { ProfesoresService } from '../profesor-service/profesor-service.service';
 import { CreateProfesorDto } from './dto/create-profesor.dto/create-profesor.dto';
 import { AsignarEvaluadorDto } from './dto/asignar-evaluador.dto/asignar-evaluador.dto';
 

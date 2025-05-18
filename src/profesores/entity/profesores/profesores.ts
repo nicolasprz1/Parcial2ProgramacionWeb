@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 // src/entities/profesor.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, Long } from 'typeorm';
-import { Evaluacion } from 'src/evaluacion/entity/evaluacion/evaluacion';
+import { Evaluacion } from '../../../evaluacion/entity/evaluacion/evaluacion';
 
 @Entity()
 export class Profesor {

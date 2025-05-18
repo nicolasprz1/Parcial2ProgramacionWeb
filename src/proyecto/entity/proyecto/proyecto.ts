@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, OneToMany } from 'typeorm';
-import { Estudiante } from 'src/estudiantes/entity/estudiantes/estudiantes';
-import { Evaluacion } from 'src/evaluacion/entity/evaluacion/evaluacion';
+import { Estudiante } from '../../../estudiantes/entity/estudiantes/estudiantes';
+import { Evaluacion } from '../../../evaluacion/entity/evaluacion/evaluacion';
 
 @Entity()
 export class Proyecto {

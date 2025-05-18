@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Proyecto } from '../proyecto/entity/proyecto/proyecto';
 import { Profesor } from '../profesores/entity/profesores/profesores';
-import { Evaluacion } from 'src/evaluacion/entity/evaluacion/evaluacion';
+import { Evaluacion } from '../evaluacion/entity/evaluacion/evaluacion';
 @Injectable()
 export class EvaluacionService {
   constructor(

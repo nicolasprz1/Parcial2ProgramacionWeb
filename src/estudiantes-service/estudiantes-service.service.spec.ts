@@ -3,8 +3,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { EstudiantesService } from './estudiantes-service.service';
-import { Estudiante } from 'src/estudiantes/entity/estudiantes/estudiantes';
-import { Proyecto } from 'src/proyecto/entity/proyecto/proyecto';
+import { Estudiante } from '../estudiantes/entity/estudiantes/estudiantes';
+import { Proyecto } from '../proyecto/entity/proyecto/proyecto';
 import { Repository } from 'typeorm';
 import { BadRequestException } from '@nestjs/common';
 
