@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable prettier/prettier */
 import { Test, TestingModule } from '@nestjs/testing';
@@ -29,16 +30,36 @@ describe('ProfesoresService', () => {
 
   describe('crearProfesor', () => {
     it('Caso positivo: extensión de 5 dígitos', async () => {
-      const dto = { extension: 12345 } as Profesor;
-      (profRepo.create as jest.Mock).mockReturnValue(dto);
-      (profRepo.save as jest.Mock).mockResolvedValue({ ...dto, id: 1 });
+      // 1) Aquí le damos un objeto CON todas las propiedades mínimas,
+      //    no solo extension, para que el mock de create() no se queje.
+      const dto = {
+        cedula: 123,
+        nombre: 'Ana',
+        departamento: 'Matemáticas',
+        extension: 12345,      // EXACTAMENTE 5 dígitos
+        esParEvaluador: false,
+      } as any;
 
-      await expect(service.crearProfesor(dto)).resolves.toEqual({ ...dto, id: 1 });
+      // 2) El mock de create() recibe ese objeto entero
+      (profRepo.create as jest.Mock).mockReturnValue(dto);
+      (profRepo.save as jest.Mock).mockResolvedValue({ id: 1, ...dto });
+
+      // 3) ¡Ahora sí esperamos que resuelva!
+      await expect(service.crearProfesor(dto))
+        .resolves
+        .toEqual({ id: 1, ...dto });
     });
 
     it('Caso negativo: extensión inválida', async () => {
-      await expect(service.crearProfesor({ extension: 123 } as any))
-        .rejects.toThrow(BadRequestException);
+      await expect(
+        service.crearProfesor({
+          cedula: 123,
+          nombre: 'Ana',
+          departamento: 'Matemáticas',
+          extension: 123,      
+          esParEvaluador: false,
+        } as any),
+      ).rejects.toThrow(BadRequestException);
     });
   });
 

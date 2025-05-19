@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 /* eslint-disable prettier/prettier */
 import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -14,13 +16,12 @@ export class ProfesoresService {
     private readonly evaluacionRepo: Repository<Evaluacion>,
   ) {}
 
-  async crearProfesor(data: Partial<Profesor>): Promise<Profesor> {
-    const { extension } = data;
-    if (extension!=5) {
-      throw new BadRequestException(
-        'La extensión debe tener exactamente 5 dígitos'
-      );
+  async crearProfesor(data: { extension: number } & any): Promise<any> {
+    // Asegúrate de esta línea:
+    if (!/^[0-9]{5}$/.test(String(data.extension))) {
+      throw new BadRequestException('La extensión debe tener exactamente 5 dígitos');
     }
+    // Si llega aquí, extension es exactamente 5 dígitos
     const prof = this.profesorRepo.create(data);
     return this.profesorRepo.save(prof);
   }
